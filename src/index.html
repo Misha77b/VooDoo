@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="./images/Logomark.png" />
     <title>VooDoo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Space+Grotesk:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link href="/dist/styles/style.css" rel="stylesheet" />
   </head>
   <body>
@@ -15,7 +21,60 @@
     <h1 class="text-3xl font-bold underline">Hello world!</h1>
     <!-- footer -->
     <footer class="bg-white fixed bottom-0 w-full border-t border-black">
-      this is out footer
+      <div class="mx-auto w-full max-w-screen-xl">
+        <div class="grid grid-cols-1 gap-8 px-4 py-6 lg:py-14 md:grid-cols-4">
+          <div>
+            <a href="#">
+              <img src="./images/Logomark.png" alt="footer-logo" />
+            </a>
+          </div>
+          <div>
+            <ul class="font-space-mono font-bold text-sm">
+              <li class="mb-4">
+                <a class="hover:underline" href="#">FAQ</a>
+              </li>
+              <li class="mb-4">
+                <a class="hover:underline" href="#">RETURNS</a>
+              </li>
+              <li class="mb-4">
+                <a class="hover:underline" href="#">CONTACT</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <ul class="font-space-mono font-bold text-sm">
+              <li class="mb-4">
+                <a class="hover:underline" href="#">TERMS & CONDITIONS</a>
+              </li>
+              <li class="mb-4">
+                <a class="hover:underline" href="#">PRIVACY POLICY</a>
+              </li>
+              <li class="mb-4">
+                <a class="hover:underline" href="#">COOKIE POLICY</a>
+              </li>
+              <li class="mb-4">
+                <a class="hover:underline" href="#">COOKIE SETTINGS</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <ul class="font-space-grotesk font-bold text-sm">
+              <li class="mb-4">
+                <a class="hover:underline" href="#">ABOUT SECOND CHANCE</a>
+              </li>
+              <li class="mb-4">
+                <a class="hover:underline" href="#">CAREERS</a>
+              </li>
+              <li class="mb-4">
+                <a class="hover:underline" href="#">FACEBOOK</a>
+              </li>
+              <li class="mb-4">
+                <a class="hover:underline" href="#">INSTAGRAM</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </footer>
   </body>
 </html>

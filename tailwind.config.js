@@ -3,7 +3,10 @@ module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
     extend: {
-      fontFamily: {},
+      fontFamily: {
+        "space-grotesk": ["Space Grotesk"],
+        "space-mono": ["Space Mono"],
+      },
       colors: {},
     },
   },
