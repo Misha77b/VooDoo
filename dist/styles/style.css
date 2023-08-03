@@ -546,10 +546,6 @@ body {
   bottom: 0px;
 }
 
-.order-4 {
-  order: 4;
-}
-
 .order-last {
   order: 9999;
 }
@@ -563,8 +559,32 @@ body {
   margin-bottom: 1rem;
 }
 
+.flex {
+  display: flex;
+}
+
 .grid {
   display: grid;
+}
+
+.h-16 {
+  height: 4rem;
+}
+
+.h-8 {
+  height: 2rem;
+}
+
+.h-12 {
+  height: 3rem;
+}
+
+.h-4 {
+  height: 1rem;
+}
+
+.h-6 {
+  height: 1.5rem;
 }
 
 .w-full {
@@ -579,16 +599,60 @@ body {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.place-content-start {
+  place-content: start;
+}
+
 .place-items-center {
   place-items: center;
 }
 
-.content-center {
-  align-content: center;
+.items-start {
+  align-items: flex-start;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-14 {
+  gap: 3.5rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
 }
 
 .gap-8 {
   gap: 2rem;
+}
+
+.gap-10 {
+  gap: 2.5rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
+.gap-5 {
+  gap: 1.25rem;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.border-b {
+  border-bottom-width: 1px;
 }
 
 .border-t {
@@ -600,9 +664,22 @@ body {
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
 }
 
 .px-4 {
@@ -610,9 +687,23 @@ body {
   padding-right: 1rem;
 }
 
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .font-space-grotesk {
@@ -637,6 +728,15 @@ body {
   font-weight: 700;
 }
 
+.font-medium {
+  font-weight: 500;
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 .underline {
   text-decoration-line: underline;
 }
@@ -645,31 +745,29 @@ body {
   text-decoration-line: underline;
 }
 
-@media (min-width: 640px) {
-  .sm\:order-4 {
-    order: 4;
-  }
-
-  .sm\:order-1 {
-    order: 1;
-  }
-}
-
 @media (min-width: 768px) {
-  .md\:order-4 {
-    order: 4;
-  }
-
-  .md\:order-1 {
-    order: 1;
-  }
-
   .md\:order-first {
     order: -9999;
   }
 
+  .md\:h-16 {
+    height: 4rem;
+  }
+
+  .md\:h-8 {
+    height: 2rem;
+  }
+
   .md\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .md\:gap-14 {
+    gap: 3.5rem;
+  }
+
+  .md\:p-4 {
+    padding: 1rem;
   }
 }
 
