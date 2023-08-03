@@ -7,6 +7,12 @@ module.exports = {
         "space-grotesk": ["Space Grotesk"],
         "space-mono": ["Space Mono"],
       },
+      width: {
+        "card-img": "300px",
+      },
+      height: {
+        "card-img": "300px",
+      },
       colors: {},
     },
   },
