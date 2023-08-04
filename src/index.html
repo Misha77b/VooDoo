@@ -57,7 +57,7 @@
         id="drawer-navigation"
         tabindex="-1"
         aria-labelledby="drawer-navigation-label"
-        class="font-space-grotesk justify-start p-10 fixed right-0 top-0 h-screen w-full sm:w-[405px] text-white transform translate-x-full transition-transform duration-300 ease-in-out bg-[#1E1E1E] z-10"
+        class="overflow-auto font-space-grotesk justify-start p-10 fixed right-0 top-0 h-screen w-full sm:w-[405px] text-white transform translate-x-full transition-transform duration-300 ease-in-out bg-[#1E1E1E] z-10"
       >
         <div
           class="flex justify-between items-center font-space-grotesk border-b border-[#FCF7E6] pb-5"
@@ -91,9 +91,12 @@
           </button>
         </div>
         <!-- cart products -->
-        <div class="flex mt-[53px] mb-[32px] flex-col gap-10">
+        <div
+          id="shopping-cart-list"
+          class="flex mt-[53px] mb-[32px] flex-col gap-10"
+        >
           <!-- cart item -->
-          <div class="flex w-full">
+          <!-- <div class="flex w-full">
             <img
               class="w-[74px] h-[74px] mr-[18px] border border-[#FCF7E6] rounded"
               src="./images/Logomark.png"
@@ -134,10 +137,10 @@
                 </defs>
               </svg>
             </button>
-          </div>
+          </div> -->
 
           <!-- cart item -->
-          <div class="flex w-full">
+          <!-- <div class="flex w-full">
             <img
               class="w-[74px] h-[74px] mr-[18px] border border-[#FCF7E6] rounded"
               src="./images/Logomark.png"
@@ -178,10 +181,10 @@
                 </defs>
               </svg>
             </button>
-          </div>
+          </div> -->
 
           <!-- cart item -->
-          <div class="flex w-full">
+          <!-- <div class="flex w-full">
             <img
               class="w-[74px] h-[74px] mr-[18px] border border-[#FCF7E6] rounded"
               src="./images/Logomark.png"
@@ -222,7 +225,7 @@
                 </defs>
               </svg>
             </button>
-          </div>
+          </div> -->
         </div>
         <!-- Total price -->
         <div
