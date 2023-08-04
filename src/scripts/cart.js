@@ -17,6 +17,7 @@ class Cart {
     this.products = products;
     this.cart = [];
     this.cartQuantity = 0;
+    this.shoppingCart = [];
   }
 
   async getProducts() {
@@ -46,6 +47,8 @@ class Cart {
       cartCounter.innerText = this.cartQuantity;
       console.log(this.cartQuantity, cartCounter);
       console.log("Product added to cart:", productToAdd);
+      this.shoppingCart.push(productToAdd);
+      console.log("cart shopping", this.shoppingCart);
     } else {
       console.error("Product not found.");
     }
@@ -61,6 +64,8 @@ class Cart {
     this.cartQuantity = this.cart.length;
     cartCounter.innerText = this.cartQuantity;
   }
+
+  renderShoppingCart() {}
 }
 
 const cartProducts = new Cart();
