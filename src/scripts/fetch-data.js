@@ -2,16 +2,12 @@ const url = "https://voodoo-sandbox.myshopify.com/products.json?limit=24";
 const cardsList = document.querySelector(".cards-list");
 const prevBtn = document.getElementById("prev-btn");
 const nextBtn = document.getElementById("next-btn");
-const cartCounter = document.getElementById("quantity");
 class Products {
   constructor(products) {
     this.baseUrl = "https://voodoo-sandbox.myshopify.com/products.json";
     this.limit = 24;
     this.currentPage = 1;
     this.totalPages = 1;
-    this.products = products;
-    this.cart = [];
-    this.cartQuantity = 0;
   }
 
   //   fetch limited quantity of products
@@ -64,36 +60,6 @@ class Products {
     });
   }
 
-  //   Add to cart
-  addToCart(productId) {
-    const productToAdd = this.products.find((product) => {
-      return product.id === Number(productId);
-    });
-
-    console.log(this.products, productToAdd);
-    if (productToAdd) {
-      this.cart.push(productToAdd.id);
-      this.saveCartToLocalStorage();
-      this.cartQuantity = this.cart.length;
-      cartCounter.innerText = this.cartQuantity;
-      console.log(this.cartQuantity, cartCounter);
-      console.log("Product added to cart:", productToAdd);
-    } else {
-      console.error("Product not found.");
-    }
-  }
-
-  saveCartToLocalStorage() {
-    localStorage.setItem("cart", JSON.stringify(this.cart));
-  }
-
-  loadCartFromLocalStorage() {
-    const cartData = localStorage.getItem("cart");
-    this.cart = cartData ? JSON.parse(cartData) : [];
-    this.cartQuantity = this.cart.length;
-    cartCounter.innerText = this.cartQuantity;
-  }
-
   //  pagination
   async nextPage() {
     if (this.currentPage < this.totalPages) {
@@ -119,14 +85,14 @@ class Products {
 const allProducts = new Products();
 // render products
 allProducts.getProducts();
-// add to cart
-document.addEventListener("click", (event) => {
-  if (event.target.classList.contains("add-to-cart-btn")) {
-    const productId = event.target.id;
-    allProducts.addToCart(productId);
-  }
-});
-window.onload = allProducts.loadCartFromLocalStorage();
+// // add to cart
+// document.addEventListener("click", (event) => {
+//   if (event.target.classList.contains("add-to-cart-btn")) {
+//     const productId = event.target.id;
+//     allProducts.addToCart(productId);
+//   }
+// });
+// window.onload = allProducts.loadCartFromLocalStorage();
 // pagination
 prevBtn.addEventListener("click", allProducts.prevPage);
 nextBtn.addEventListener("click", allProducts.nextPage);
