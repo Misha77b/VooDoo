@@ -2,6 +2,7 @@ const url = "https://voodoo-sandbox.myshopify.com/products.json?limit=24";
 const cardsList = document.querySelector(".cards-list");
 const prevBtn = document.getElementById("prev-btn");
 const nextBtn = document.getElementById("next-btn");
+const cartCounter = document.getElementById("quantity");
 class Products {
   constructor(products) {
     this.baseUrl = "https://voodoo-sandbox.myshopify.com/products.json";
@@ -10,6 +11,7 @@ class Products {
     this.totalPages = 1;
     this.products = products;
     this.cart = [];
+    this.cartQuantity = 0;
   }
 
   //   fetch limited quantity of products
@@ -72,6 +74,9 @@ class Products {
     if (productToAdd) {
       this.cart.push(productToAdd.id);
       this.saveCartToLocalStorage();
+      this.cartQuantity = this.cart.length;
+      cartCounter.innerText = this.cartQuantity;
+      console.log(this.cartQuantity, cartCounter);
       console.log("Product added to cart:", productToAdd);
     } else {
       console.error("Product not found.");
@@ -85,6 +90,8 @@ class Products {
   loadCartFromLocalStorage() {
     const cartData = localStorage.getItem("cart");
     this.cart = cartData ? JSON.parse(cartData) : [];
+    this.cartQuantity = this.cart.length;
+    cartCounter.innerText = this.cartQuantity;
   }
 
   //  pagination
@@ -119,6 +126,7 @@ document.addEventListener("click", (event) => {
     allProducts.addToCart(productId);
   }
 });
+window.onload = allProducts.loadCartFromLocalStorage();
 // pagination
 prevBtn.addEventListener("click", allProducts.prevPage);
 nextBtn.addEventListener("click", allProducts.nextPage);

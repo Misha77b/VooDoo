@@ -34,8 +34,14 @@
             />
           </a>
           <div class="flex gap-5 md:gap-14">
-            <button type="button ">
+            <button type="button" class="cart-btn relative px-4">
               <img src="./images/shopping-cart.png" alt="shopping-cart" />
+              <span
+                id="quantity"
+                class="text-sm w-[18px] h-[18px] flex absolute right-0 top-0 bg-black text-white rounded-full justify-center items-center"
+              >
+                0
+              </span>
             </button>
             <button
               type="button"
@@ -47,7 +53,6 @@
         </div>
       </nav>
     </header>
-    <!-- main -->
     <main
       class="mt-[100px] text-3xl font-bold flex items-center flex-col container max-w-[1272px] px-4 py-2 sm:px-0 sm:py-0"
     >
@@ -129,18 +134,48 @@
       ></div>
 
       <!-- Pagination -->
-      <div class="pagination">
+      <div class="pagination mb-[196px] flex gap-2.5 items-center">
         <button
           id="prev-btn"
-          class="px-4 py-2 bg-blue-500 text-white rounded-md mr-2"
+          class="w-[39px] h-[39px] text-lg font-normal border border-black border-solid rounded-full bg-transparent flex justify-center items-center"
         >
-          Previous
+          &lt;
         </button>
+        <a
+          href="#"
+          class="w-[39px] h-[39px] text-lg font-normal bg-black text-white border border-black border-solid rounded-full flex justify-center items-center"
+        >
+          1
+        </a>
+        <a
+          href="#"
+          class="w-[39px] h-[39px] text-lg font-normal border border-black border-solid rounded-full bg-transparent flex justify-center items-center"
+        >
+          2
+        </a>
+        <a
+          href="#"
+          class="w-[39px] h-[39px] text-lg font-normal border border-black border-solid rounded-full bg-transparent flex justify-center items-center"
+        >
+          3
+        </a>
+        <a
+          href="#"
+          class="w-[39px] h-[39px] text-lg font-normal border border-black border-solid rounded-full bg-transparent flex justify-center items-center"
+        >
+          4
+        </a>
+        <a
+          href="#"
+          class="w-[39px] h-[39px] text-lg font-normal border border-black border-solid rounded-full bg-transparent flex justify-center items-center"
+        >
+          5
+        </a>
         <button
           id="next-btn"
-          class="px-4 py-2 bg-blue-500 text-white rounded-md"
+          class="w-[39px] h-[39px] text-lg font-normal border border-black border-solid rounded-full bg-transparent flex justify-center items-center"
         >
-          Next
+          &gt;
         </button>
       </div>
     </main>
@@ -206,6 +241,5 @@
 
     <script src="./scripts/accordion.js"></script>
     <script src="./scripts/fetch-data.js"></script>
-    <script src="./scripts/addToCart.js"></script>
   </body>
 </html>
