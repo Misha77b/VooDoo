@@ -126,127 +126,23 @@
       <!-- Cards list -->
       <div
         class="cards-list mb-[70px] cards-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-12 justify-center font-space-grotesk"
-      >
-        <!-- Productcard -->
-        <div class="w-[300px] relative">
-          <span
-            class="absolute top-3 left-3 uppercase text-white text-xs uppercase rounded bg-black p-2"
-            >used</span
-          >
-          <a href="#">
-            <img
-              class="h-[300px] object-contain border border-black rounded"
-              src="./images/Logomark.png"
-              alt="product image"
-            />
-          </a>
-          <div class="flex items-center justify-between py-3 text-sm">
-            <div class="flex flex-col">
-              <span class="font-bold">Product name</span>
-              <span class="font-bold">000 KR.</span>
-            </div>
-            <div class="flex flex-col text-right">
-              <span class="font-bold">Condition</span>
-              <span class="font-normal">Slightly used</span>
-            </div>
-          </div>
-          <button
-            class="text-white text-sm uppercase rounded bg-black py-4 w-full"
-          >
-            Add to cart
-          </button>
-        </div>
-        <!-- Productcard -->
-        <div class="w-[300px] relative">
-          <span
-            class="absolute top-3 left-3 uppercase text-white text-xs uppercase rounded bg-black p-2"
-            >used</span
-          >
-          <a href="#">
-            <img
-              class="h-[300px] object-contain border border-black rounded"
-              src="./images/Logomark.png"
-              alt="product image"
-            />
-          </a>
-          <div class="flex items-center justify-between py-3 text-sm">
-            <div class="flex flex-col">
-              <span class="font-bold">Product name</span>
-              <span class="font-bold">000 KR.</span>
-            </div>
-            <div class="flex flex-col text-right">
-              <span class="font-bold">Condition</span>
-              <span class="font-normal">Slightly used</span>
-            </div>
-          </div>
-          <button
-            class="text-white text-sm uppercase rounded bg-black py-4 w-full"
-          >
-            Add to cart
-          </button>
-        </div>
-        <!-- Productcard -->
-        <div class="w-[300px] relative">
-          <span
-            class="absolute top-3 left-3 uppercase text-white text-xs uppercase rounded bg-black p-2"
-            >used</span
-          >
-          <a href="#">
-            <img
-              class="h-[300px] object-contain border border-black rounded"
-              src="./images/Logomark.png"
-              alt="product image"
-            />
-          </a>
-          <div class="flex items-center justify-between py-3 text-sm">
-            <div class="flex flex-col">
-              <span class="font-bold">Product name</span>
-              <span class="font-bold">000 KR.</span>
-            </div>
-            <div class="flex flex-col text-right">
-              <span class="font-bold">Condition</span>
-              <span class="font-normal">Slightly used</span>
-            </div>
-          </div>
-          <button
-            class="text-white text-sm uppercase rounded bg-black py-4 w-full"
-          >
-            Add to cart
-          </button>
-        </div>
-        <!-- Productcard -->
-        <div class="w-[300px] relative">
-          <span
-            class="absolute top-3 left-3 uppercase text-white text-xs uppercase rounded bg-black p-2"
-            >used</span
-          >
-          <a href="#">
-            <img
-              class="h-[300px] object-contain border border-black rounded"
-              src="./images/Logomark.png"
-              alt="product image"
-            />
-          </a>
-          <div class="flex items-center justify-between py-3 text-sm">
-            <div class="flex flex-col">
-              <span class="font-bold">Product name</span>
-              <span class="font-bold">000 KR.</span>
-            </div>
-            <div class="flex flex-col text-right">
-              <span class="font-bold">Condition</span>
-              <span class="font-normal">Slightly used</span>
-            </div>
-          </div>
-          <button
-            class="text-white text-sm uppercase rounded bg-black py-4 w-full"
-          >
-            Add to cart
-          </button>
-        </div>
-      </div>
+      ></div>
 
       <!-- Pagination -->
-      <div></div>
+      <div class="pagination">
+        <button
+          id="prev-btn"
+          class="px-4 py-2 bg-blue-500 text-white rounded-md mr-2"
+        >
+          Previous
+        </button>
+        <button
+          id="next-btn"
+          class="px-4 py-2 bg-blue-500 text-white rounded-md"
+        >
+          Next
+        </button>
+      </div>
     </main>
     <!-- footer -->
     <footer class="bg-white bottom-0 w-full border-t border-black">
@@ -310,5 +206,6 @@
 
     <script src="./scripts/accordion.js"></script>
     <script src="./scripts/fetch-data.js"></script>
+    <script src="./scripts/addToCart.js"></script>
   </body>
 </html>
