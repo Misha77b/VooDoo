@@ -35,7 +35,11 @@
           </a>
           <div class="flex gap-5 md:gap-14">
             <button type="button" class="cart-btn relative px-4">
-              <img src="./images/shopping-cart.png" alt="shopping-cart" />
+              <img
+                id="cart-icon"
+                src="./images/shopping-cart.png"
+                alt="shopping-cart"
+              />
               <span
                 id="quantity"
                 class="text-sm w-[18px] h-[18px] flex absolute right-0 top-0 bg-black text-white rounded-full justify-center items-center"
@@ -57,7 +61,7 @@
         id="drawer-navigation"
         tabindex="-1"
         aria-labelledby="drawer-navigation-label"
-        class="p-10 fixed right-0 top-0 h-screen w-[320px] text-white duration-300 ease-in-out bg-[#1E1E1E] text-[#FCF7E6]"
+        class="p-10 fixed right-0 top-0 h-screen w-[320px] text-white transform translate-x-full transition-transform duration-300 ease-in-out bg-[#1E1E1E] text-[#FCF7E6] z-10"
       >
         <div
           class="flex justify-between items-center font-space-grotesk border-b pb-5"
@@ -66,6 +70,7 @@
             Shopping Cart
           </h5>
           <button
+            id="close-shopping-cart"
             type="button"
             data-drawer-hide="drawer-navigation"
             aria-controls="drawer-navigation"
@@ -84,7 +89,6 @@
                 clip-rule="evenodd"
               ></path>
             </svg>
-            <span class="sr-only">Close menu</span>
           </button>
         </div>
 
@@ -278,6 +282,7 @@
     </footer>
 
     <script src="./scripts/accordion.js"></script>
+    <script src="./scripts/cart.js"></script>
     <script src="./scripts/fetch-data.js"></script>
   </body>
 </html>
