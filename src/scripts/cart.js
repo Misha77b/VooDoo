@@ -85,33 +85,12 @@ class Cart {
                 <span>${product.variants[0].price}</span>
                 <span>- 1 +</span>
             </div>
-            <button id="delete-from-cart-btn" class="self-start ml-auto hover:bg-[#3c3c3c] p-1.5 rounded-lg">
-                <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                >
-                <g id="System-Line/delete-bin-6-line" clip-path="url(#clip0_2720_971)">
-                    <g id="Group">
-                    <path id="Vector"
-                        d="M7 4V2H17V4H22V6H20V21C20 21.2652 19.8946 21.5196 19.7071 21.7071C19.5196 21.8946 19.2652 22 19 22H5C4.73478 22 4.48043 21.8946 4.29289 21.7071C4.10536 21.5196 4 21.2652 4 21V6H2V4H7ZM6 6V20H18V6H6ZM9 9H11V17H9V9ZM13 9H15V17H13V9Z"
-                        fill="#FCF7E6"
-                    />
-                    </g>
-                </g>
-                <defs>
-                    <clipPath id="clip0_2720_971">
-                    <rect width="24" height="24" fill="white" />
-                    </clipPath>
-                </defs>
-                </svg>
+            <button class="self-start ml-auto hover:bg-[#3c3c3c] p-1.5 rounded-lg">
+            <img id=${product.id} class="delete-from-cart" src="./images/delete-bin-6-line.png" alt="bin image" />
             </button>
             </div>`);
       });
       shoppingCartList.innerHTML = cartProduct;
-      //   shoppingCartList.insertAdjacentHTML("beforeend", cartCard);
     }
   }
 }
@@ -123,6 +102,10 @@ document.addEventListener("click", (event) => {
   if (event.target.classList.contains("add-to-cart-btn")) {
     const productId = event.target.id;
     cartProducts.addToCart(productId);
+    console.log("Add to cart", productId);
+  } else if (event.target.classList.contains("delete-from-cart")) {
+    const productId = event.target.id;
+    console.log("Remove from cart", productId);
   }
 });
 window.onload = cartProducts.loadCartFromLocalStorage();

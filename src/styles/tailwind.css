@@ -715,6 +715,10 @@ body {
   height: 100vh;
 }
 
+.h-\[24px\] {
+  height: 24px;
+}
+
 .w-3 {
   width: 0.75rem;
 }
@@ -741,6 +745,10 @@ body {
 
 .w-full {
   width: 100%;
+}
+
+.w-\[24px\] {
+  width: 24px;
 }
 
 .max-w-\[1272px\] {
@@ -910,6 +918,18 @@ body {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-\[url\(\'\.\/images\/delete-bin-6-line\.svg\'\)\] {
+  background-image: url('./images/delete-bin-6-line.svg');
+}
+
+.bg-\[url\(\'\/images\/delete-bin-6-line\.svg\'\)\] {
+  background-image: url('/images/delete-bin-6-line.svg');
+}
+
+.bg-\[url\(\'\.\.\/images\/delete-bin-6-line\.svg\'\)\] {
+  background-image: url('../images/delete-bin-6-line.svg');
 }
 
 .object-contain {
