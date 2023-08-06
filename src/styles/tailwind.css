@@ -715,6 +715,10 @@ body {
   height: 100vh;
 }
 
+.h-\[20px\] {
+  height: 20px;
+}
+
 .w-3 {
   width: 0.75rem;
 }
@@ -741,6 +745,10 @@ body {
 
 .w-full {
   width: 100%;
+}
+
+.w-\[20px\] {
+  width: 20px;
 }
 
 .max-w-\[1272px\] {
@@ -829,6 +837,10 @@ body {
   gap: 2rem;
 }
 
+.gap-1 {
+  gap: 0.25rem;
+}
+
 .gap-x-6 {
   -moz-column-gap: 1.5rem;
        column-gap: 1.5rem;
@@ -840,6 +852,10 @@ body {
 
 .self-start {
   align-self: flex-start;
+}
+
+.overflow-auto {
+  overflow: auto;
 }
 
 .rounded {
