@@ -19,6 +19,8 @@ class Cart {
     this.cart = [];
     this.cartQuantity = 0;
     this.shoppingCart = [];
+    this.total = 0;
+    this.productQuantity = 1;
   }
 
   async getProducts() {
@@ -27,7 +29,7 @@ class Cart {
       const data = await response.json();
       this.products = data.products;
 
-      console.log("cart", this.products);
+      //   console.log("cart", this.products);
     } catch {
       console.error("Error fetching data: ", error);
       return [];
@@ -49,9 +51,9 @@ class Cart {
       this.shoppingCart.push(productToAdd);
       this.renderShoppingCart(this.shoppingCart);
       //   logs to console
-      console.log(this.cartQuantity, cartCounter);
-      console.log("Product added to cart:", productToAdd);
-      console.log("cart shopping", this.shoppingCart);
+      //   console.log(this.cartQuantity, cartCounter);
+      //   console.log("Product added to cart:", productToAdd);
+      //   console.log("cart shopping", this.shoppingCart);
     } else {
       console.error("Product not found.");
     }
@@ -62,21 +64,11 @@ class Cart {
   }
 
   loadCartFromLocalStorage() {
+    const cartData = localStorage.getItem("cart");
     this.cart = cartData ? JSON.parse(cartData) : [];
     this.cartQuantity = this.cart.length;
     cartCounter.innerText = this.cartQuantity;
-  }
-
-  removeFromCart(productId) {
-    // const cartData = localStorage.getItem("cart");
-
-    const index = this.shoppingCart.findIndex(
-      (product) => product.id === productId
-    );
-    if (index !== -1) {
-      this.shoppingCart.splice(index, 1);
-      this.renderShoppingCart(this.shoppingCart);
-    }
+    console.log(this.cartQuantity);
   }
 
   renderShoppingCart(shoppingCart) {
@@ -100,7 +92,7 @@ class Cart {
                 >
                   -
                 </button>
-                <span class="w-[20px] h-[20px] text-center text-sm font-bold quantity">1</span>
+                <span class="w-[20px] h-[20px] text-center text-sm font-bold quantity">${this.productQuantity}</span>
                 <button
                   class="w-[20px] h-[20px] hover:bg-[#3c3c3c] rounded text-center text-sm font-bold increment-btn"
                 >
@@ -125,11 +117,8 @@ document.addEventListener("click", (event) => {
   if (event.target.classList.contains("add-to-cart-btn")) {
     const productId = event.target.id;
     cartProducts.addToCart(productId);
-    console.log("Add to cart", productId);
-  } else if (event.target.classList.contains("delete-from-cart")) {
-    const productId = event.target.id;
-    cartProducts.removeFromCart(productId);
-    console.log("Remove from cart", productId);
+    // console.log("Add to cart", productId);
   }
 });
+
 window.onload = cartProducts.loadCartFromLocalStorage();
