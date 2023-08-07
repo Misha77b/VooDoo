@@ -25,11 +25,12 @@ class Cart {
 
   async getProducts() {
     try {
-      const response = await fetch(`${this.url}`);
-      const data = await response.json();
-      this.products = data.products;
+      const response = await fetch(`${this.url}`)
+        .then((res) => res.json())
+        .then((data) => data.products);
+      this.products = response;
 
-      //   console.log("cart", this.products);
+      console.log("cart-full products", this.products);
     } catch {
       console.error("Error fetching data: ", error);
       return [];
@@ -63,17 +64,24 @@ class Cart {
     localStorage.setItem("cart", JSON.stringify(this.cart));
   }
 
-  loadCartFromLocalStorage() {
+  async loadCartFromLocalStorage() {
+    const response = await fetch(`${this.url}`)
+      .then((res) => res.json())
+      .then((data) => data.products);
     const cartData = localStorage.getItem("cart");
     this.cart = cartData ? JSON.parse(cartData) : [];
     this.cartQuantity = this.cart.length;
     cartCounter.innerText = this.cartQuantity;
-    console.log(this.cartQuantity);
+    const cartFromLS = this.cart.map((id) => {
+      return response.find((product) => product.id === Number(id));
+    });
+    console.log(cartFromLS);
+    this.renderShoppingCart(cartFromLS);
   }
 
   renderShoppingCart(shoppingCart) {
     if (shoppingCart.length === 0) {
-      shoppingCartList.innerHTML = "Cart is empty";
+      shoppingCartList.innerHTML = "<span>Cart is empty</span>";
     } else {
       let cartProduct = "";
       shoppingCart.map((product) => {
@@ -88,12 +96,16 @@ class Cart {
                 <span>${product.variants[0].price}</span>
                 <div class="flex gap-1">
                 <button
+                    onClick="changeQuantity(${this.productQuantity - 1})"
                   class="w-[20px] h-[20px] hover:bg-[#3c3c3c] rounded text-center text-sm font-bold decrement-btn"
                 >
                   -
                 </button>
-                <span class="w-[20px] h-[20px] text-center text-sm font-bold quantity">${this.productQuantity}</span>
+                <span class="w-[20px] h-[20px] text-center text-sm font-bold quantity">${
+                  this.productQuantity
+                }</span>
                 <button
+                    onClick="changeQuantity(${this.productQuantity + 1})"
                   class="w-[20px] h-[20px] hover:bg-[#3c3c3c] rounded text-center text-sm font-bold increment-btn"
                 >
                   +
@@ -101,7 +113,9 @@ class Cart {
               </div>
             </div>
             <button class="self-start ml-auto hover:bg-[#3c3c3c] p-1.5 rounded-lg">
-            <img id=${product.id} class="delete-from-cart" src="./images/delete-bin-6-line.png" alt="bin image" />
+            <img id=${
+              product.id
+            } class="delete-from-cart" src="./images/delete-bin-6-line.png" alt="bin image" />
             </button>
             </div>`);
       });
@@ -121,4 +135,5 @@ document.addEventListener("click", (event) => {
   }
 });
 
-window.onload = cartProducts.loadCartFromLocalStorage();
+cartProducts.loadCartFromLocalStorage();
+cartProducts.renderShoppingCart();
