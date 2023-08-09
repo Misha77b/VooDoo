@@ -30,7 +30,7 @@ class Cart {
         .then((data) => data.products);
       this.products = response;
 
-      console.log("cart-full products", this.products);
+      console.log("cart-all products", this.products);
     } catch {
       console.error("Error fetching data: ", error);
       return [];
@@ -79,6 +79,17 @@ class Cart {
     this.renderShoppingCart(cartFromLS);
   }
 
+  removeFromCart(cartItemId) {
+    this.cart = this.cart.filter((product) => {
+      return product !== Number(cartItemId);
+    });
+    this.shoppingCart = this.shoppingCart.filter((product) => {
+      return product.id !== Number(cartItemId);
+    });
+    this.saveCartToLocalStorage();
+    this.renderShoppingCart(this.shoppingCart);
+  }
+
   renderShoppingCart(shoppingCart) {
     if (shoppingCart.length === 0) {
       shoppingCartList.innerHTML = "<span>Cart is empty</span>";
@@ -88,7 +99,7 @@ class Cart {
         return (cartProduct += `<div class="flex w-full">
             <img
                 class="w-[74px] h-[74px] mr-[18px] border border-[#FCF7E6] rounded"
-                src="${product.images[0]?.src}"
+                src="${product?.images[0]?.src}"
                 alt="product img"
             />
             <div class="flex flex-col justify-between text-xs font-bold">
@@ -105,7 +116,7 @@ class Cart {
                   this.productQuantity
                 }</span>
                 <button
-                    onClick="changeQuantity(${this.productQuantity + 1})"
+                  onClick="changeQuantity(${this.productQuantity + 1})"
                   class="w-[20px] h-[20px] hover:bg-[#3c3c3c] rounded text-center text-sm font-bold increment-btn"
                 >
                   +
@@ -113,9 +124,10 @@ class Cart {
               </div>
             </div>
             <button class="self-start ml-auto hover:bg-[#3c3c3c] p-1.5 rounded-lg">
-            <img id=${
-              product.id
-            } class="delete-from-cart" src="./images/delete-bin-6-line.png" alt="bin image" />
+            <img 
+              id=${product.id} 
+              class="delete-from-cart" src="./images/delete-bin-6-line.png" alt="bin image" 
+            />
             </button>
             </div>`);
       });
@@ -128,10 +140,14 @@ const cartProducts = new Cart();
 cartProducts.getProducts();
 // add to cart
 document.addEventListener("click", (event) => {
+  const productId = event.target.id;
   if (event.target.classList.contains("add-to-cart-btn")) {
-    const productId = event.target.id;
     cartProducts.addToCart(productId);
     // console.log("Add to cart", productId);
+  } else if (event.target.classList.contains("delete-from-cart")) {
+    console.log(productId);
+    console.log(cartProducts.removeFromCart(productId));
+    cartProducts.removeFromCart(productId);
   }
 });
 
