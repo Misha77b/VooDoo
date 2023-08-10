@@ -3,6 +3,7 @@ const shoppingCartList = document.getElementById("shopping-cart-list");
 const shoppingCartSidebar = document.getElementById("drawer-navigation");
 const closeShoppingCart = document.getElementById("close-shopping-cart");
 const cartCounter = document.getElementById("quantity");
+const cartTotalSum = document.getElementById("total-cart-sum");
 
 cart.addEventListener("click", (e) => {
   shoppingCartSidebar.classList.toggle("translate-x-full");
@@ -21,6 +22,7 @@ class Cart {
     this.shoppingCart = [];
     this.total = 0;
     this.productQuantity = 1;
+    this.totalCartSum = 0;
   }
 
   async getProducts() {
@@ -39,6 +41,13 @@ class Cart {
 
   //   Add to cart
   addToCart(productId) {
+    // const existingItem = this.shoppingCart.find((product) => {
+    //   return product.id === productId;
+    // });
+    // console.log(existingItem);
+    // if(existingItem) {
+    //     alert("")
+    // }
     const productToAdd = this.products.find((product) => {
       return product.id === Number(productId);
     });
@@ -86,6 +95,7 @@ class Cart {
     this.shoppingCart = this.shoppingCart.filter((product) => {
       return product.id !== Number(cartItemId);
     });
+    cartCounter.innerText = this.cart.length;
     this.saveCartToLocalStorage();
     this.renderShoppingCart(this.shoppingCart);
   }

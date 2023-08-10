@@ -45,7 +45,7 @@ class Products {
         <div class="flex items-center justify-between py-3 text-sm">
             <div class="flex flex-col">
                 <span class="font-bold">${product.title}</span>
-                <span class="font-bold">${product.variants[0].price} KR.</span>
+                <span class="font-bold">${product.variants[0]?.price} KR.</span>
             </div>
             <div class="flex flex-col text-right">
                 <span class="font-bold">Condition</span>
